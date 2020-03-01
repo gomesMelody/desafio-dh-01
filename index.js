@@ -23,16 +23,16 @@ function buscarAluno(nome){
     /* Por meio dessa função, podemos pesquisar um aluno por nome na lista de aluno. Ela deverá exibir um feedback,
     tanto para quando encontrar o aluno, tanto quando não encontrar. E deverá devolver um aluno em seu retorno. */
     let encontrados =[]
-    encontrados = alunosDaEscola.filter(aluno => {
-        if (nome == aluno.nome) { return aluno} })
+    encontrados = alunosDaEscola.filter(aluno => { return nome == aluno.nome })
     
     if (encontrados.length == 0){
         console.log ("Aluno não encontrado no sistema.");
     } else {
         console.log("Aluno encontrado no sistema!");
-        
     }
     return encontrados;
+        
+    
 }
 function matricularAluno(aluno, curso){
     /* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
@@ -45,7 +45,7 @@ function matricularAluno(aluno, curso){
         } else {
         alunosDaEscola.forEach(estudante => {
             if (estudante.nome == aluno.nome) {
-                estudante.cursos = {nomeDoCurso: curso, dataMatricula: new Date}
+                estudante.cursos = [{nomeDoCurso: curso, dataMatricula: new Date}]
                 console.log("Aluno matriculado com sucesso!");
             }
         })
@@ -113,34 +113,31 @@ function aprovarAluno(aluno){
                         console.log("Este aluno foi Reprovado!")
                     }
             }
-        
-         
-            
-        }
+         }
 
 }
 
-// TESTES DE FUNÇÃO
+// // TESTES DE FUNÇÃO
 
-alunoTeste = {nome: "Melody", notas:[], cursos:[], faltas: 0}
-alunoErro = {nome: "Facebookson", notas:[], cursos:[], faltas: 0}
-console.log(adicionarAluno("Melody"))
-console.log(listarAlunos())
-console.log(buscarAluno("Melody"))
-console.log(buscarAluno("Facebookson"))
-matricularAluno(alunoTeste,"Debugando seu Code");
+// alunoTeste = {nome: "Melody", notas:[], cursos:[], faltas: 0}
+// alunoErro = {nome: "Facebookson", notas:[], cursos:[], faltas: 0}
+// console.log(adicionarAluno("Melody"))
+// console.log(listarAlunos())
+// console.log(buscarAluno("Melody"))
+// console.log(buscarAluno("Facebookson"))
+// matricularAluno(alunoTeste,"Debugando seu Code");
 
-aplicarFalta(alunoTeste);
-aplicarNota(alunoTeste);
-console.log("\n Verificando notas com Erro:\n")
+// aplicarFalta(alunoTeste);
+// aplicarNota(alunoTeste);
+// console.log("\n Verificando notas com Erro:\n")
 
-aprovarAluno(alunoErro);
-// Loop aprovarAluno
-console.log("\n Verificando notas:\n")
-alunosDaEscola.map( aluno => 
-    { console.log(aluno.nome + " sendo verificado")
-        aprovarAluno(aluno);}
-)
-
-
+// aprovarAluno(alunoErro);
+// // Loop aprovarAluno
+// console.log("\n Verificando notas:")
+// alunosDaEscola.map( aluno => 
+//     { 
+//         console.log("")
+//         console.log(aluno.nome + " sendo verificado")
+//         aprovarAluno(aluno); }
+// )
 
